@@ -1,13 +1,10 @@
-Si vous utilisez un .env, y mettre :
-
-OPENAI_API_KEY="sk-..."  
-OPENAI_API_URL="https://llm.lab.sspcloud.fr/api/v1"  
-QDRANT_SERVER_HOST="..."  
-QDRANT_API_KEY="..."  
-
-Autre possibilité : utiliser les secret sur le SSPCloud  
+Utiliser les secret sur le SSPCloud  
 
 import os  
 
 secrets = os.environ  
 secrets['KEY']  
+
+git clone "https://github.com/clara-baudry/analyse_auto_avec_LLM.git"
+cd analyse_auto_avec_LLM/
+pip install -r requete_LLM_par_API/requirements.txt  
