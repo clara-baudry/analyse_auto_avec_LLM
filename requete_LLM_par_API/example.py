@@ -1,19 +1,16 @@
 from dotenv import load_dotenv
 import os
 from openai import OpenAI
-#from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
 
-load_dotenv(override=True)
+# load_dotenv(override=True)
 
-# USERNAME = ""
-# EXTRACTION_DATE = ""
+secrets = os.environ
 
-# collection_default_name = f"{EXTRACTION_DATE.replace('-','')}"
-# COLLECTION_BASENAME = os.getenv(
-#     "COLLECTION_BASENAME", f"test_collection_{collection_default_name}"
-# )
-
-# EMBEDDING_MODEL = "bge-m3:latest"
+OPENAI_API_KEY=secrets['']
+OPENAI_API_URL="https://llm.lab.sspcloud.fr/api/v1"
+QDRANT_SERVER_HOST="..."
+QDRANT_API_KEY="..."
 
 # on définit notre client
 client = OpenAI(
