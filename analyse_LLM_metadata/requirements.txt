@@ -1,0 +1,21 @@
+# Dependencies for prem_code (preliminary SDC pipeline).
+# Install:  pip install -r requirements.txt
+#
+# The deterministic stages (serialize / validate / CSV) need almost nothing:
+#   - .ods and .csv reading use the Python standard library (no odfpy)
+#   - jsonschema validates the model's JSON before the CSV transform
+# The model stage needs the OpenAI SDK (SSP Cloud speaks the OpenAI chat API).
+
+# --- always required ---
+jsonschema>=4.20      # core/extract_json.py: validate the LLM JSON against the schema
+
+# --- model stage (live calls only) ---
+openai>=1.0           # core/llm_client.py: Qwen on SSP Cloud (OpenAI-compatible)
+python-dotenv>=1.0    # core/llm_client.py: load a local .env for the API key
+
+# --- input serialization (only for .xlsx workbooks; .ods/.csv need nothing) ---
+openpyxl>=3.1         # core/read_input.py: read .xlsx sheets
+
+# --- optional: only if you also want the rtauargus .rds (off the producer path) ---
+# pandas>=2.0
+# pyreadr>=0.5

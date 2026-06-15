@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDC LLM output contract (prompt_questions, \"NA\" convention)",
+  "description": "One object per output table row. Every value is a string; the literal string \"NA\" is the sentinel for an absent value or a missing hierarchy (never JSON null, never empty). spanning_variables always holds at least one {code, hrc} entry.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["table_name", "field", "hrc_field", "indicator", "hrc_indicator", "spanning_variables"],
+    "additionalProperties": false,
+    "properties": {
+      "table_name":    { "type": "string", "minLength": 1 },
+      "field":         { "type": "string", "minLength": 1 },
+      "hrc_field":     { "type": "string", "minLength": 1 },
+      "indicator":     { "type": "string", "minLength": 1 },
+      "hrc_indicator": { "type": "string", "minLength": 1 },
+      "spanning_variables": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": ["code", "hrc"],
+          "additionalProperties": false,
+          "properties": {
+            "code": { "type": "string", "minLength": 1 },
+            "hrc":  { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}
