@@ -10,8 +10,7 @@ Config comes only from the environment, so keys never live in code:
 
     LLM_MODEL      model name              (default: qwen3-6-35b-moe)
     LLM_BASE_URL   endpoint                (default: SSP Cloud)
-    OPENAI_API_KEY the key for the endpoint (blank on this machine; set on the work
-                   laptop, or injected as an Onyxia/Vault secret)
+    CLE_API_OPENWEBUI the key for the endpoint 
 
 A local .env is loaded automatically if python-dotenv is installed.
 """
